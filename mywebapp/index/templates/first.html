@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<frame-options policy="SAMEORIGIN" />
+<head>
+ <title>文档的标题</title>
+</head>
+
+<body>
+
+文档的内容......
+
+                <form action="hello" method="post" target="nm_iframe">
+                {%csrf_token%}
+                <input type = "text" id = "video" name = "video_name" ></input>
+                <input type="submit" id="id_submit" name="nm_submit" value="提交" />
+                </form>
+                {% for row in correct %}
+                <tr>
+                <td>{{row}}</td>
+                </tr>
+                {% endfor %}
+    <form action="/upload/" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+        <input type="file" name="fafafa" accept = ".mp4">
+        <input type="submit">
+    </form>
+   <div> {{cnt_pic}}</div>
+   {%for ps in path1%}
+   <br>
+   
+   <p><img src={{ps}}></p> 
+   </br>
+   {% endfor %}
+</body>
+
+</html>
