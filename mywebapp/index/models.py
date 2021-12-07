@@ -1,10 +1,22 @@
 from django.db import models
-class Article(models.Model):
-    title = models.CharField(u'标题', max_length = 256)
-    content = models.TextField(u'内容')
-    time = models.DateTimeField()
-class UserInfo(models.Model):
-    nid = models.AutoField(primary_key=True)
-    ##头像是一个FileField——注意这里必须是“相对路径”，不能是/avatars/这样的绝对路径
-    avatar = models.FileField(upload_to='avatars/',default='avatars/default.jpg')
-# Create your models here.
+class missions(models.Model):
+    states = (
+        ('0', '未完成'),
+        ('1', '已完成'),
+        ('2', '审核中'))
+    description = models.CharField(max_length = 256,default = "")
+    state = models.CharField(choices=states,max_length = 20,default='未完成', verbose_name='任务状态')
+    puber = models.CharField(max_length = 256,default = "")
+    recieve = models.CharField(max_length=256,default = "")
+    mission_id = models.AutoField(primary_key=True)
+    pic_num = models.IntegerField(default=0)
+class urls(models.Model):
+    pic_url = models.CharField(max_length= 256,default="")
+    mission = models.IntegerField(default=0)
+class labels(models.Model):
+    xMin = models.FloatField(default=0)
+    yMin = models.FloatField(default=0)
+    height = models.FloatField(default=0)
+    width = models.FloatField(default=0)
+    label = models.CharField(max_length=256,default="")
+    mission = models.IntegerField(default=0)

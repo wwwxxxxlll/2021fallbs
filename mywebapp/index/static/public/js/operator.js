@@ -130,33 +130,20 @@ function selectImage(index) {
 
 document.getElementById("saveJson").addEventListener('click', function() {
 	annotate.Arrays.imageAnnotateMemory.map((item)=>{
-		document.getElementById("test").value = item.rectMask.yMin;
-		console.log(item);
-	let filename = taskName.textContent.split('.')[0] + '.json';
-	annotate.Arrays.imageAnnotateMemory.length > 0 ? saveJson(annotate.Arrays.imageAnnotateMemory, filename): alert('当前图片未有有效的标定数据');
+		if(annotate.Arrays.imageAnnotateMemory.length <= 0 )
+		alert('当前图片未有有效的标定数据');
+		else{
+			document.getElementById("yMin").value = item.rectMask.yMin;
+			document.getElementById("xMin").value = item.rectMask.xMin;
+			document.getElementById("height").value = item.rectMask.height;
+			document.getElementById("width").value = item.rectMask.width;
+			document.getElementById("label").value = item.labels.labelName;
+			console.log(item);
+		}
 	});
 });
 
-function saveJson(data, filename) {
-	if (!data) {
-		alert('保存的数据为空');
-		return false;
-	}
-	if (!filename) {
-		filename = 'json.json';
-	}
-	if (typeof data === 'object') {
-		data = JSON.stringify(data, undefined, 4);
-	}
-	let blob = new Blob([data], {type: 'text/json'}),
-		e = document.createEvent('MouseEvent'),
-		a = document.createElement('a');
-		a.download = filename;
-		a.href = window.URL.createObjectURL(blob)
-		a.dataset.downloadurl = ['text/json', a.download, a.href].join(':');
-		
-		a.dispatchEvent(e)
-}
+
 //弹出框
 function openBox (e, isOpen) {
 	let el = document.querySelector(e);

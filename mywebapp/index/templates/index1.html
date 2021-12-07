@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>图像标注工具</title>
-    <link rel="Shortcut Icon" type="image/x-icon" href="favicon.ico">
+    <link rel="Shortcut Icon" type="image/x-icon" href="../static/public/favicon.ico">
     <link rel="stylesheet" href="../static/public/css/preloader.css">
     <link rel="stylesheet" href="../static/public/css/style.css">
     <link rel="stylesheet" href="../static/public/css/font-awesome.min.css">
@@ -64,9 +64,14 @@
         <div class="toolFeatures">
             <div class="assistFeatures">
                 <p class="openFolder" title="打开文件"></p>
-                <p class="saveJson" id = "saveJson" title="生出Json并保存到本地"></p>
-                <form action="" method="post" target="nm_iframe">
-                <input type = "hidden" id ="test" name = "testname"></input>
+                <p class="saveJson" id = "saveJson" title="更新标注数据"></p>
+                <form action="/act" method="post" target="nm_iframe">
+                {%csrf_token%}
+                <input type = "hidden" id ="xMin"></input>
+                <input type = "hidden" id ="yMin"></input>
+                <input type = "hidden" id ="height"></input>
+                <input type = "hidden" id ="width"></input>
+                <input type = "hidden" id ="label"></input>
                 <input type="submit" id="id_submit" name="nm_submit" value="提交" />
                 </form>
                 <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
