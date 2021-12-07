@@ -133,7 +133,3 @@ def act(request):
     if request.method == 'POST':
         return
     return
-def ty(request):
-    if request.method == 'POST':
-        return
-    return
