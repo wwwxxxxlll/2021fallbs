@@ -133,7 +133,3 @@ def act(request):
     if request.method == 'POST':
         return
     return
-def mission_pub_pic(request):
-    cursor = connection.cursor()
-
-    return
