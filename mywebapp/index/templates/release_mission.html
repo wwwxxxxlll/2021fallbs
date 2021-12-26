@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,10 +6,40 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>上传视频</title>
+	<title>选择图片发布任务</title>
 	<meta name="description" content="Lavinya - Software HTML template by tempload.">
 	<meta name="keywords" content="lavinya, startup, saas, agency, development, html, template, tempload">
-
+    <style>
+    table, td, th
+    {
+        border:1px solid green;
+		table-layout:fixed;
+		width : 100px;
+    }
+    th
+    {
+        background-color:green;
+        color:white;
+    }
+	td{  
+		width:100%;  
+		word-break:keep-all;/* 不换行 */  
+		white-space:nowrap;/* 不换行 */  
+		overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */  
+		text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用*/  
+	}  
+    </style>
+	<script >
+		function bigImg(x) {
+			x.style.height = "256px";
+			x.style.width = "256px";
+		  }
+		  
+		  function normalImg(x) {
+			x.style.height = "12px";
+			x.style.width = "12px";
+		  }
+		</script>
 	<!-- Bootstrap & Plugins CSS -->
 	<link href="../static/page_static/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="../static/page_static/static/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -34,33 +65,33 @@
 						<!-- ***** Logo End ***** -->
 
 
-						<!-- ***** Menu Start ***** -->
-						<ul class="nav">
-							<li class="submenu">
-								<a href="javascript:;">主页</a>
-								<ul>
-									<li><a onclick = "window.location.href='/home'">主页</a></li>
-								</ul>
-							</li>
-							<li class="submenu">
-								<a href="javascript:;">上传资源</a>
-								<ul>
-									<li><a onclick = "window.location.href='/pub_pic'">上传图片</a></li>
-									<li><a onclick = "window.location.href='/pub_video'">上传视频</a></li>
-								</ul>
-							</li>
-							<li class="submenu">
-								<a href="javascript:;">任务</a>
-								<ul>
-									<li><a  onclick = "window.location.href='/show_missions'">查看任务</a></li>
-									<li><a  onclick = "window.location.href='/pub_mission'">选择资源发布任务</a></li>
-								</ul>
-							</li>
-						</ul>
-						<a class="menu-trigger">
-							<span>Menu</span>
-						</a>
-						<!-- ***** Menu End ***** -->
+					<!-- ***** Menu Start ***** -->
+					<ul class="nav">
+						<li class="submenu">
+							<a href="javascript:;">主页</a>
+							<ul>
+								<li><a onclick = "window.location.href='/home'">主页</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="javascript:;">上传资源</a>
+							<ul>
+								<li><a onclick = "window.location.href='/pub_pic'">上传图片</a></li>
+								<li><a onclick = "window.location.href='/pub_video'">上传视频</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="javascript:;">任务</a>
+							<ul>
+								<li><a  onclick = "window.location.href='/show_missions'">查看任务</a></li>
+								<li><a  onclick = "window.location.href='/pub_mission'">选择资源发布任务</a></li>
+							</ul>
+						</li>
+					</ul>
+					<a class="menu-trigger">
+						<span>Menu</span>
+					</a>
+					<!-- ***** Menu End ***** -->
 
 						<!-- ***** Header Buttons Start ***** -->
 						{%if request.user.is_authenticated%}
@@ -79,42 +110,8 @@
 		</div>
 	</header>
 	<!-- ***** Header Area End ***** -->
+	
 
-                
-    <!-- ***** Welcome Area Start ***** -->
-	<div class="welcome-area-one" id="welcome">
-		<div class="bg">
-			<img src="../static/page_static/static/picture/welcome-bg-one.svg" alt="" class="img-fluid">
-		</div>
-		<div class="content">
-			<div class="container">
-				<div class="row">
-					<div class="offset-lg-3 offset-md-2 col-lg-6 col-md-8 text-center">
-						<div class="text">
-							<h1>上传视频</h1>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="offset-lg-2 col-lg-8">
-					<div class="player">
-                    <div>
-                    <form action="/upload" method="post" enctype="multipart/form-data">
-                        {%csrf_token%}
-                        <div class="offset-lg-2 "><div class="offset-lg-2 " style="color:white">请选择mp4视频文件</div></div>
-                        <div class="offset-lg-2 "><input type="file" name="fafafa" accept = ".mp4" ></div>
-                        <!--<div class="offset-lg-2 "style="color:white">添加备注</div>
-                        <div class="offset-lg-2 "><input type = "text" name="description" placeholder="Your message"></textarea></div>-->
-                        <div class="offset-lg-2 "><div class="offset-lg-2 col-lg-2"><input type="submit"></div></div>
-                    </form>
-                    </div>                   
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- ***** Welcome Area End ***** -->
 	<!-- ***** Welcome Area Start ***** -->
 	<div class="welcome-area-one" id="welcome">
 		<div class="bg">
@@ -122,27 +119,49 @@
 		</div>
 		<div class="content">
 			<div class="container">
-                {%if path1%}
-                <div class="row">
-                    <br>
-					<script>alert('任务已发布，下滑查看图片分割状态')</script>
-                    <div class="offset-lg-3 offset-md-2 col-lg-6 col-md-8 text-center">
-						<div class="text">
-							<h1>图片上传成功</h1>
-                        </div>
+				
+                <div class="offset-lg-3 offset-md-2 col-lg-6 col-md-8 text-center">
+                    <div class="text">
+                        <h1>发布任务</h1>
+                    </div>
+                </div>
+				<div class="row">
+					<div class="offset-lg-2 col-lg-8">
+						<div class="player">
+							<img src="../static/page_static/static/image/12.jpg" alt="" class="img-fluid">
+							</a>
+						</div>
 					</div>
-                    <div class="text-center">
-						{%for ps in path1%}
-						<br>
-						<p"align = center"><img src={{ps}}></p> 
-						</br>
-						{% endfor %}
+				</div>
+				<div class="row">
+					<div class="text-center">
+                        <form action="/do_pub_mission" method="POST"> {% csrf_token %}
+
+                            <table  class = "table">
+								<tr>
+                            <th>图片id</th>
+                            <th>图片url</th>
+							<th>悬停查看图片</th>
+                                </tr>
+                        {% for i in a %}
+                        <tr>
+                             <td><input type="checkbox" value="{{ i.1 }}" name="check_box_list" >{{ i.0 }}</td>
+                             <td title = "输入url查看图片">{{i.1}}</td>
+							<td>	<img onmouseover="bigImg(this)" onmouseout="normalImg(this)"src={{i.1}} /></td>
+                        </tr>
+                        {% endfor %}
+                        </table>
+                        <div class="text-center"style="color:green">添加备注</div>
+                        <div class="text-center"><input type = "text" name="description" placeholder="Your message"></textarea></div>
+                    <input type="submit" value="提交"/>
+                    </form>
 					</div>
-                {%endif%}
+				</div>
 			</div>
 		</div>
 	</div>
 	<!-- ***** Welcome Area End ***** -->
+
 	<!-- ***** Footer Start ***** -->
 	<footer>
 		<div class="container">
@@ -174,7 +193,6 @@
 	<script src="../static/page_static/static/js/parallax.min.js"></script>
 	<script src="../static/page_static/static/js/imgfix.min.js"></script>
 	<script src="../static/page_static/static/js/owl.carousel.min.js"></script>
-    <!--sendemail-->
-    <script type = "module" src="../static/public/js/sendmail.js"></script>
+
 </body>
 </html>

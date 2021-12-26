@@ -88,6 +88,8 @@ html, body {
   font-weight: 400;
   background-color: #fff;
   font-size: 16px;
+  width:100%;
+  position:relative;
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -789,6 +791,7 @@ header
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
+  background-color: #504CE5;
   transition: all 0.3s ease 0s;
 }
 

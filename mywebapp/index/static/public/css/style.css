@@ -7,8 +7,6 @@ i,em{ font-style:normal;}
 table{border-collapse: collapse;border: none;width: 100%; table-layout: fixed;}
 body,html{
     font-size: 0;
-    overflow-y: hidden;
-    overflow-x: hidden;
     height: 100%;
 }
 /*遮罩层*/
@@ -127,10 +125,7 @@ body,html{
      */
 .toolHead {
     width: 100%;
-    background: -webkit-linear-gradient(left, #2b334a, #27405d);/* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(right, #2b334a, #27405d);/* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(right, #2b334a, #27405d);/* Firefox 3.6 - 15 */
-    background: linear-gradient(to right, #2b334a, #27405d);/* 标准的语法 */
+    background: linear-gradient(to left, #2062c5, #27405d);
     height: 60px;
     position: relative;
 }
@@ -211,7 +206,6 @@ body,html{
     font-size: 14px;
     width: 100%;
     height: 20px;
-    overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
@@ -355,8 +349,8 @@ body,html{
     position: relative;
 }
 .canvasMain .toolFeatures {
-    background: #21293c;
-    width: 60px;
+    background: linear-gradient(to bottom,#27405d , #2062c5);
+    width: 100px;
     height: 100%;
     position: relative;
 }
@@ -378,7 +372,6 @@ body,html{
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    background: url(../images/folder.png) no-repeat 0 0;
     cursor: pointer;
 }
 .toolFeatures .saveJson {
@@ -388,7 +381,7 @@ body,html{
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    background: url(../images/saveJson.png) no-repeat 0 0;
+    background: url(../images/保存.svg) no-repeat 0 0;
     background-size: 100%;
     cursor: pointer;
 }
@@ -490,7 +483,6 @@ body,html{
 .canvasContent .scaleBox .scaleCanvas {
     position: relative;
     width: 150px;
-    overflow: hidden;
     z-index: 999;
     cursor: pointer;
 }
@@ -501,7 +493,7 @@ body,html{
     color: #fff;
 }
 .canvasMain .commentResult {
-    width: 300px;
+    width: 350px;
     height: 100%;
     background: #293245;
     border-left: 1px solid #293245;
@@ -526,12 +518,12 @@ body,html{
     color: #fff;
     height: 36px;
     line-height: 36px;
-    font-size: 12px;
+    font-size: 20px;
     text-indent: 10px;
     -webkit-box-shadow: 0 1px 3px 0 #3c5167;
     -moz-box-shadow: 0 1px 3px 0 #3c5167;
-    box-shadow: 0 1px 3px 0 #3c5167;
-    background: #212d3f;
+    box-shadow: 0 1px 3px 0 #2062c5;
+    background: #2062c5;
 }
 .commentResult .resultArea .resultList_head {
     width: 100%;
@@ -544,12 +536,14 @@ body,html{
     color: #fff;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
+    background: #2062c5;
     box-sizing: border-box;
 }
 .resultList_head .headChildren {
     width: 100%;
     height: 30px;
     border-bottom: 1px solid #3c5167;
+    background: #2062c5;
 }
 .resultList_head .headChildren .headName {
     display: inherit;

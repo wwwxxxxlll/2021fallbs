@@ -26,8 +26,18 @@ SECRET_KEY = 'django-insecure-+q(+^=9zc36n6vmamd#9g%0+v5n-*mch+y-zie=caua=)k-dnk
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-
+# 发送邮件配置
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# smpt服务地址
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_PORT = 25   # 端口默认都是25不需要修改
+# 发送邮件的邮箱，需要配置开通SMTP
+EMAIL_HOST_USER = '2314379811@qq.com'
+# 在邮箱中设置的客户端授权密码
+EMAIL_HOST_PASSWORD = 'ouirkqtzqvpoeaad'
+# 收件人看到的发件人
+EMAIL_FROM = '验证发送'
+# redis 的配置文件
 # Application definition
 
 INSTALLED_APPS = [

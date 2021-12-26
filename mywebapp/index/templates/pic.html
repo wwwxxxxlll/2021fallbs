@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Lavinya - Software HTML Template</title>
+	<title>上传图片</title>
 	<meta name="description" content="Lavinya - Software HTML template by tempload.">
 	<meta name="keywords" content="lavinya, startup, saas, agency, development, html, template, tempload">
 
@@ -37,36 +37,23 @@
 						<!-- ***** Menu Start ***** -->
 						<ul class="nav">
 							<li class="submenu">
-								<a href="javascript:;">Home</a>
+								<a href="javascript:;">主页</a>
 								<ul>
-									<li><a href="">Home One</a></li>
+									<li><a onclick = "window.location.href='/home'">主页</a></li>
 								</ul>
 							</li>
 							<li class="submenu">
-								<a href="javascript:;">Discover</a>
+								<a href="javascript:;">上传资源</a>
 								<ul>
-									<li><a href="#features">Features</a></li>
-									<li><a href="#about-project">About Project</a></li>
-									<li><a href="#testimonials">Testimonials</a></li>
-									<li><a href="#pricing-plans">Pricing Plans</a></li>
+									<li><a onclick = "window.location.href='/pub_pic'">上传图片</a></li>
+									<li><a onclick = "window.location.href='/pub_video'">上传视频</a></li>
 								</ul>
 							</li>
 							<li class="submenu">
-								<a href="javascript:;">Pages</a>
+								<a href="javascript:;">任务</a>
 								<ul>
-									<li><a href="about.html">About Us</a></li>
-									<li><a href="services.html">Services</a></li>
-									<li><a href="faq.html">FAQ's</a></li>
-									<li><a href="release-notes.html">Release Notes</a></li>
-									<li><a href="404.html">404 Page</a></li>
-									<li><a href="contact.html">Contact</a></li>
-								</ul>
-							</li>
-							<li class="submenu">
-								<a href="javascript:;">Blog</a>
-								<ul>
-									<li><a href="blog.html">Blog Grid</a></li>
-									<li><a href="blog-single.html">Single Blog</a></li>
+									<li><a  onclick = "window.location.href='/show_missions'">查看任务</a></li>
+									<li><a  onclick = "window.location.href='/pub_mission'">选择资源发布任务</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -104,7 +91,7 @@
 				<div class="row">
 					<div class="offset-lg-3 offset-md-2 col-lg-6 col-md-8 text-center">
 						<div class="text">
-							<h1>发布图片标注任务</h1>
+							<h1>上传图片</h1>
 						</div>
 					</div>
 				</div>
@@ -114,10 +101,15 @@
                     <div>
                     <form action="/pub_pic" method="post" enctype="multipart/form-data">
                         {%csrf_token%}
-                        <div class="offset-lg-2 "><div class="offset-lg-2 " style="color:white">请选择jpg文件</div></div>
-                        <input type="file" name="img" >
-                        <div class="offset-lg-2 "><div class="offset-lg-2 "style="color:white">添加备注</div></div>
-                        <div class="offset-lg-2 "><input type = "text" name="description" placeholder="Your message"></textarea></div>
+                        <div class="offset-lg-2 "><div class="offset-lg-2 " style="color:white">请添加jpg文件</div></div>
+                        <div class="offset-lg-2 "><input type="file" name="img" >
+						<input type="file" name="img" ></div>
+						<div class="offset-lg-2 "><input type="file" name="img" >
+							<input type="file" name="img" >
+							<div class="offset-lg-2 "><input type="checkbox" value="1" name="check_box_list" >是否添加到对象存储
+						</div>
+                        <!--<div class="offset-lg-2 "style="color:white">添加备注</div>
+                        <div class="offset-lg-2 "><input type = "text" name="description" placeholder="Your message"></textarea></div>-->
                         <div class="offset-lg-2 "><div class="offset-lg-2 col-lg-2"><input type="submit"></div></div>
                     </form>
                     </div>
@@ -136,7 +128,8 @@
 		</div>
 		<div class="content">
 			<div class="container">
-                {%if path1%}
+                {%if f%}
+				<script>alert('对象存储成功：')</script>
                 <div class="row">
                     <br>
                     <div class="offset-lg-3 offset-md-2 col-lg-6 col-md-8 text-center">
@@ -144,8 +137,12 @@
 							<h1>图片上传成功</h1>
                         </div>
 					</div>
-                    <div>
-                    <p "align = center"><img src={{path1}}></p> 
+					<div class="row">
+						{%for ps in f%}
+						<br>
+						<div class="offset-lg-3 "><p"align = center" style = "color:black">访问路径为：{{ps}}</p> </div>
+						</br>
+						{% endfor %}
 					</div>
                 {%endif%}
 			</div>
@@ -155,6 +152,11 @@
 	<!-- ***** Footer Start ***** -->
 	<footer>
 		<div class="container">
+			<div class="row">
+				<div class="col-lg-5 col-md-12 col-sm-12">
+					<font color = "white">copyright@wxl-3190104726</font>
+				</div>
+			</div>
 			<div class="row">
 				<div class="col-lg-5 col-md-12 col-sm-12">
 					<img src="../static/page_static/static/picture/logo-white.svg" class="logo" alt="">

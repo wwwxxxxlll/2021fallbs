@@ -10,7 +10,11 @@ class missions(models.Model):
     recieve = models.CharField(max_length=256,default = "")
     mission_id = models.AutoField(primary_key=True)
     pic_num = models.IntegerField(default=0)
-class urls(models.Model):
+    pic_tat = models.IntegerField(default=0)
+class pic_urls(models.Model):
+    pic_url = models.CharField(max_length= 256,default= "")
+    puber = models.CharField(max_length = 256,default = "")
+class mission_urls(models.Model):
     pic_url = models.CharField(max_length= 256,default="")
     mission = models.IntegerField(default=0)
 class labels(models.Model):
@@ -19,4 +23,6 @@ class labels(models.Model):
     height = models.FloatField(default=0)
     width = models.FloatField(default=0)
     label = models.CharField(max_length=256,default="")
+    pic_num = models.IntegerField(default=0)
+    pic_url = models.CharField(max_length=256,default="")
     mission = models.IntegerField(default=0)

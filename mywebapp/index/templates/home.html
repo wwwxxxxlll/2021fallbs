@@ -5,9 +5,9 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Lavinya - Software HTML Template</title>
-	<meta name="description" content="Lavinya - Software HTML template by tempload.">
-	<meta name="keywords" content="lavinya, startup, saas, agency, development, html, template, tempload">
+	<title>主页</title>
+	<meta name="description" content="Home page">
+	<meta name="keywords" content="annotation">
 
 	<!-- Bootstrap & Plugins CSS -->
 	<link href="../static/page_static/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -29,7 +29,7 @@
 					<nav class="main-nav">
 						<!-- ***** Logo Start ***** -->
 						<a href="" class="logo">
-							<img src="../static/page_static/static/picture/logo-white.svg" alt="Lavinya">
+							<img src="../static/page_static/static/picture/logo-white.svg" alt="Logo">
 						</a>
 						<!-- ***** Logo End ***** -->
 
@@ -37,36 +37,23 @@
 						<!-- ***** Menu Start ***** -->
 						<ul class="nav">
 							<li class="submenu">
-								<a href="javascript:;">Home</a>
+								<a href="javascript:;">主页</a>
 								<ul>
-									<li><a href="">Home One</a></li>
+									<li><a onclick = "window.location.href='/home'">主页</a></li>
 								</ul>
 							</li>
 							<li class="submenu">
-								<a href="javascript:;">Discover</a>
+								<a href="javascript:;">上传资源</a>
 								<ul>
-									<li><a href="#features">Features</a></li>
-									<li><a href="#about-project">About Project</a></li>
-									<li><a href="#testimonials">Testimonials</a></li>
-									<li><a href="#pricing-plans">Pricing Plans</a></li>
+									<li><a onclick = "window.location.href='/pub_pic'">上传图片</a></li>
+									<li><a onclick = "window.location.href='/pub_video'">上传视频</a></li>
 								</ul>
 							</li>
 							<li class="submenu">
-								<a href="javascript:;">Pages</a>
+								<a href="javascript:;">任务</a>
 								<ul>
-									<li><a href="about.html">About Us</a></li>
-									<li><a href="services.html">Services</a></li>
-									<li><a href="faq.html">FAQ's</a></li>
-									<li><a href="release-notes.html">Release Notes</a></li>
-									<li><a href="404.html">404 Page</a></li>
-									<li><a href="contact.html">Contact</a></li>
-								</ul>
-							</li>
-							<li class="submenu">
-								<a href="javascript:;">Blog</a>
-								<ul>
-									<li><a href="blog.html">Blog Grid</a></li>
-									<li><a href="blog-single.html">Single Blog</a></li>
+									<li><a  onclick = "window.location.href='/show_missions'">查看任务</a></li>
+									<li><a  onclick = "window.location.href='/pub_mission'">选择资源发布任务</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -104,15 +91,15 @@
 				<div class="row">
 					<div class="offset-lg-3 offset-md-2 col-lg-6 col-md-8 text-center">
 						<div class="text">
-							<h1>Build Better Software</h1>
-							<p>Over 100,000 developers and designers are more productive with Alya - the most powerful Git client for all operating system.</p>
+							<h1>数据采集与标注解决方案</h1>
+							<p>通过提供自由的图像标注任务发布与认领方式，为客户交付标准化、结构化的可用数据，帮助客户训练算法模型、开展机器学习，提高AI领域的竞争力。</p>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="offset-lg-2 col-lg-8">
 						<div class="player">
-							<img src="../static/page_static/static/picture/11.jpg" alt="" class="img-fluid">
+							<img src="../static/page_static/static/image/12.jpg" alt="" class="img-fluid">
 							</a>
 						</div>
 					</div>
@@ -130,12 +117,12 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="center-heading">
-						<h2 class="section-title">3 ways Lavinya helps your business succeed</h2>
+						<h2 class="section-title">趋势分析</h2>
 					</div>
 				</div>
 				<div class="offset-lg-3 col-lg-6">
 					<div class="center-text">
-						<p>Donec vulputate urna sed rutrum venenatis. Cras consequat magna quis arcu elementum, quis congue risus volutpat.</p>
+						
 					</div>
 				</div>
 			</div>
@@ -148,11 +135,10 @@
 							<div class="icon">
 								<i class="fa fa-code-fork"></i>
 							</div>
-							<h5 class="features-title">Network Services</h5>
+							<h5 class="features-title">数据决定了 AI 的落地程度</h5>
 						</div>
 						<div class="text">
-							<p>Sed a arcu a diam lobortis males uada eget in orci. Donec non dignissim lectus, aliquet laoreet sem.</p>
-							<a href="#">Know more!</a>
+							<p>目前人工智能商业化在算力、算法和技术方面，基本达到阶段性成熟。通过算法和应用的落地来真正解决行业具体痛点，需要采集大量人工智能相关的原始数据，并经过标注处理后做算法训练支撑，可以说数据决定了AI的落地程度。</p>
 						</div>
 					</div>
 				</div>
@@ -162,11 +148,10 @@
 							<div class="icon">
 								<i class="fa fa-code"></i>
 							</div>
-							<h5 class="features-title">Visualize Progress</h5>
+							<h5 class="features-title">新兴应用场景对AI数据需求日益旺盛</h5>
 						</div>
 						<div class="text">
-							<p>Praesent semper consectetur molestie. Vivamus facilisis, enim eu suscipit sagittis, arcu quam interdum.</p>
-							<a href="#">Know more!</a>
+							<p>AI行业高速发展，智能驾驶、智能终端等领域不断发展，应用落地不断加速。以计算机视觉为例，一个新场景的开发支持需要上万张甚至数十万张不等的经过采集和标注的图片。随着AI应用场景的丰富，对AI数据服务将产生长期海量的需求。</p>
 						</div>
 					</div>
 				</div>
@@ -176,11 +161,10 @@
 							<div class="icon">
 								<i class="fa fa-columns"></i>
 							</div>
-							<h5 class="features-title">Git for Mobile</h5>
+							<h5 class="features-title">AI数据服务更加注重专业和质量</h5>
 						</div>
 						<div class="text">
-							<p>Cras pulvinar, diam ut tempor accumsan, elit ipsum efficitur nisl, non vehicula enim ex et lacus.</p>
-							<a href="#">Know more!</a>
+							<p>随着AI行业商业化发展，落地场景对AI数据的需求更加多样化和定制化，也对AI数据服务的专业性和质量提出了更高的要求，作坊式中小数据服务商将逐渐被市场淘汰，技术、规模、专业度领先的品牌数据服务商将越来越受到青睐。</p>
 						</div>
 					</div>
 				</div>
@@ -216,8 +200,8 @@
 							<div class="home-about-image">
 								<div class="img-3">
 									<div class="text">
-										<strong>Our goal:</strong>
-										<p>“We create technology for a sustainable future.”</p>
+										<strong>我们的目标</strong>
+										<p>通过更自由的任务发布方式为用户提供可靠的训练数据</p>
 									</div>
 								</div>
 							</div>
@@ -233,14 +217,18 @@
 				</div>
 				<div class="offset-lg-1 col-lg-5 align-self-center">
 					<div class="left-heading">
-						<h2 class="section-title">Simple for beginners</h2>
+						<h2 class="section-title">怎样的自由？</h2>
 					</div>
 					<div class="left-text">
-						<p>Phasellus vitae velit sit amet diam semper commodo quis quis libero. Morbi consequat arcu augue, molestie faucibus metus ullamcorper vel.</p>
+						<p>允许上传多种资源用于发布任务</p>
 						<ul>
-							<li>Sed facilisis tempor dolor, ac mollis</li>
-							<li>Donec ac lectus in lacus.</li>
-							<li>Praesent mauris risus, condimentum ac placerat</li>
+							<li>可以同时上传多张图片，并提供阿里云oss对象存储保证数据可用</li>
+							<li>可以上传视频，并自动抽取视频关键帧供用户进行图像标注</li>
+						</ul>
+						<p>提供数据标注结果导出为各种格式</p>
+						<ul>
+							<li>json格式</li>
+							<li>xml格式</li>
 						</ul>
 					</div>
 				</div>
@@ -261,8 +249,7 @@
 							<div class="text">
 								<div class="row">
 									<div class="col-lg-6 align-self-center">
-										<strong>GET IN TOUCH</strong>
-										<p>You can contact us for purchase, installation and customizations. </p>
+										
 									</div>
 									<div class="col-lg-6 text-center align-self-center">
 										<a href="#" class="secondary-btn">Contact Us</a>
@@ -286,12 +273,12 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="center-heading">
-						<h2 class="section-title">Git at your fingertips</h2>
+						<h2 class="section-title">立刻开始图像标注之旅</h2>
 					</div>
 				</div>
 				<div class="offset-lg-3 col-lg-6">
 					<div class="center-text">
-						<p>Donec vulputate urna sed rutrum venenatis. Cras consequat magna quis arcu elementum, quis congue risus volutpat.</p>
+						
 					</div>
 				</div>
 			</div>
@@ -300,7 +287,7 @@
 			<div class="row">
 				<div class="offset-lg-2 col-lg-8" data-scroll-reveal="enter bottom move 50px over 0.4s after 0.2s">
 					<div class="screen">
-						<img src="../static/page_static/static/picture/22.jpg" alt="" class="img-fluid">
+						<img src="../static/page_static/static/picture/mark.png" alt="" class="img-fluid">
 						</a>
 					</div>
 				</div>
@@ -310,80 +297,14 @@
 	<!-- ***** Screen End ***** -->
 
 
-	<!-- ***** Testimonials Small Start ***** -->
-	<section class="section padding-bottom-100 colored" id="testimonials">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-4 col-md-5 col-sm-12 mobile-bottom-fix align-self-center">
-					<div class="testimonials">
-						<img src="../static/page_static/static/picture/2.jpg" alt="">
-						<div class="content">
-							<h1>Testimonials</h1>
-							<p>Nullam nec neque massa. Cras dignissim vel enim non molestie. Praesent pellentesque lacinia neque at finibus. Integer at semper tortor.</p>
-							<div class="arrows">
-								<div class="prev">
-									<i class="fa fa-angle-left"></i>
-								</div>
-								<div class="next">
-									<i class="fa fa-angle-right"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-8 col-md-7 col-sm-12 align-self-center">
-					<div class="testimonial-slider-one owl-carousel">
-						<div class="item">
-							<div class="comment">
-								<p>Nullam at venenatis dui. Suspendisse lectus lacus, ornare sed imperdiet eu, viverra vel neque. Duis nec nunc dolor. Cras non molestie sem, eu lacinia tellus. </p>
-							</div>
-							<div class="user">
-								<div class="img">
-									<img src="../static/page_static/static/picture/1.jpg" alt="">
-								</div>
-								<div class="info">
-									<strong>Dominic L. Ement</strong>
-									<span>Sunrise Paradise Hotel</span>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="comment">
-								<p>Nullam at venenatis dui. Suspendisse lectus lacus, ornare sed imperdiet eu, viverra vel neque. Duis nec nunc dolor. Cras non molestie sem, eu lacinia tellus. </p>
-							</div>
-							<div class="user">
-								<div class="img">
-									<img src="../static/page_static/static/picture/21.jpg" alt="">
-								</div>
-								<div class="info">
-									<strong>Dominic L. Ement</strong>
-									<span>Sunrise Paradise Hotel</span>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="comment">
-								<p>Nullam at venenatis dui. Suspendisse lectus lacus, ornare sed imperdiet eu, viverra vel neque. Duis nec nunc dolor. Cras non molestie sem, eu lacinia tellus. </p>
-							</div>
-							<div class="user">
-								<div class="img">
-									<img src="../static/page_static/static/picture/3.jpg" alt="">
-								</div>
-								<div class="info">
-									<strong>Dominic L. Ement</strong>
-									<span>Sunrise Paradise Hotel</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- ***** Testimonials Small End ***** -->
 	<!-- ***** Footer Start ***** -->
 	<footer>
 		<div class="container">
+				<div class="row">
+					<div class="col-lg-5 col-md-12 col-sm-12">
+						<font color = "white">copyright@wxl-3190104726</font>
+					</div>
+				</div>
 			<div class="row">
 				<div class="col-lg-5 col-md-12 col-sm-12">
 					<img src="../static/page_static/static/picture/logo-white.svg" class="logo" alt="">

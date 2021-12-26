@@ -1,4 +1,4 @@
-alert('hello')
+
 // 设置画布初始属性
 const canvasMain = document.querySelector('.canvasMain');
 const canvas = document.getElementById('canvas');
@@ -33,20 +33,16 @@ const processIndex = document.querySelector('.processIndex');           // 当�
 const processSum = document.querySelector('.processSum');               // 当前标注任务总数
 
 let imgFiles = [];    //选择上传的文件数据集
-/**'./images/example/football.jpg', './images/example/person.jpg', './images/example/band.jpg',
-'./images/example/street.jpg', './images/example/dog.jpeg', './images/example/cat.jpg', './images/example/dogs.jpg',
-'./images/example/furniture.jpg', './images/example/basketball.jpg', './images/example/alley.jpg' */
 let imgIndex = 1;       //标定图片默认下标;
 let imgSum = 10;        // 选择图片总数;
 
 // 初始化图片状态
 function initImage(path) {
-	for(var i = 0;i< path.length - 1;i++)
+	for(var i = 0;i< path.length;i++)
 	{
 		imgFiles.push(path[i]);
 	}
 	//imgFiles.append()
-	console.log(imgFiles);
 	if(imgFiles.length > 0){
 		selectImage(0);
 	}
@@ -69,9 +65,6 @@ tool.addEventListener('click', function(e) {
 			break;
 		case e.target.className.indexOf('toolRect') > -1:  // 矩形
 			annotate.SetFeatures('rectOn', true);
-			break;
-		case e.target.className.indexOf('toolPolygon') > -1:  // 多边形
-			annotate.SetFeatures('polygonOn', true);
 			break;
 		case e.target.className.indexOf('toolTagsManager') > -1:  // 标签管理工具
 			annotate.SetFeatures('tagsOn', true);
@@ -98,8 +91,8 @@ nextBtn.onclick = function() {
 prevBtn.onclick = function() {
 	annotate.Arrays.imageAnnotateMemory.length > 0 && localStorage.setItem(taskName.textContent, JSON.stringify(annotate.Arrays.imageAnnotateMemory));  // 保存已标定的图片信息
 	if (imgIndex === 1) {
-		imgIndex = imgSum;
-		selectImage(imgSum - 1);
+		imgIndex = 1;
+		selectImage(0);
 	}
 	else {
 		imgIndex--;
@@ -110,14 +103,6 @@ prevBtn.onclick = function() {
 document.querySelector('.openFolder').addEventListener('click', function() {
 	document.querySelector('.openFolderInput').click()
 });
-
-function changeFolder(e) {
-	imgFiles = e.files;
-	imgSum = imgFiles.length;
-	processSum.innerText = imgSum;
-	imgIndex = 1;
-	selectImage(0);
-}
 
 function selectImage(index) {
 	openBox('#loading', true);
@@ -133,12 +118,15 @@ document.getElementById("saveJson").addEventListener('click', function() {
 		if(annotate.Arrays.imageAnnotateMemory.length <= 0 )
 		alert('当前图片未有有效的标定数据');
 		else{
+			console.log(item);
 			document.getElementById("yMin").value = item.rectMask.yMin;
 			document.getElementById("xMin").value = item.rectMask.xMin;
 			document.getElementById("height").value = item.rectMask.height;
 			document.getElementById("width").value = item.rectMask.width;
 			document.getElementById("label").value = item.labels.labelName;
-			console.log(item);
+			document.getElementById("pic_num").value = imgIndex
+			document.getElementById("pic_url").value = imgFiles[imgIndex]
+			document.getElementById("mid").value = document.getElementById("mid").value
 		}
 	});
 });

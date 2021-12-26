@@ -1,12 +1,35 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>登录</title>
+	<title>查看任务</title>
 	<meta name="description" content="Lavinya - Software HTML template by tempload.">
 	<meta name="keywords" content="lavinya, startup, saas, agency, development, html, template, tempload">
+    <style>
+    table, td, th
+    {
+        border:1px solid green;
+		table-layout:fixed;
+		width : 100px;
+    }
+    th
+    {
+        background-color:green;
+        color:white;
+    }
+	td{  
+		background-color:white;
+		width:100%;  
+		word-break:keep-all;/* 不换行 */  
+		white-space:nowrap;/* 不换行 */  
+		overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */  
+		text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用*/  
+	}  
+    </style>
 	<!-- Bootstrap & Plugins CSS -->
 	<link href="../static/page_static/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="../static/page_static/static/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -59,6 +82,18 @@
 							<span>Menu</span>
 						</a>
 						<!-- ***** Menu End ***** -->
+
+						<!-- ***** Header Buttons Start ***** -->
+						{%if request.user.is_authenticated%}
+						<ul class="header-buttons"><li><a class="btn-nav-line" >{{request.user.username}}</a></li>
+						<li><a class="btn-nav-line" onclick="window.location.href='../log_out'">logout</a></li></ul>
+						{%else%}
+						<ul class="header-buttons">
+							<li><a class="btn-nav-line" onclick="window.location.href='../sign_in'">Sign In</a></li>
+							<li><a class="btn-nav-primary" onclick="window.location.href='../reg'">Sign Up</a></li>
+						</ul>
+						{%endif%}
+						<!-- ***** Header Buttons End ***** -->
 					</nav>
 				</div>
 			</div>
@@ -74,18 +109,43 @@
 		</div>
 		<div class="content">
 			<div class="container">
+				
 				<div class="row">
 					<div class="offset-lg-2 col-lg-8">
 						<div class="player">
-                            <form action="/signin" method="post" >
-                                {%csrf_token%}
-                                <div class="offset-lg-1 col-lg-8"><div><p style="color:white">用户名</p><input type="text" name="username" ></div></div>
-                                <br>
-                                <div class="offset-lg-1 col-lg-8"><div><p style="color:white">密码</p><input type="password"  name="password" ></div></div>
-                                <br>
-                                <div class="offset-lg-4 col-lg-8"><input style="background:rgb(45,164,78)"type="submit"value = "登录"></div>
-                            </form>
+							<font color = "white" size = "50px">查看任务信息</font>
+							</a>
 						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="text-center">
+						<table class = "table">
+								<tr>
+								<th>任务ID</th>
+								<th>当前状态</th>
+								<th>发布者</th>
+								<th>接受者</th>
+								<th>图片数</th>
+								<th>备注</th>
+								<th>领取</th>
+								<th>标注</th>
+								<th>导出</th>
+								</tr>
+								{%for m in mission_info%}
+								<tr>
+								<td><font color = "black">{{m.0}}</font></td>
+								<td><font color = "black">{{m.1}}</font></td>
+								<td><font color = "black">{{m.2}}</font></td>
+								<td><font color = "black">{{m.3}}</font></td>
+								<td><font color = "black">{{m.4}}</font></td>
+								<td title = {{m.5}}><font color = "black">{{m.5}}</td>
+								<td ><button style="background:green;color:white;" onclick = "window.location.href='../get_mission?mid={{m.0}}'">领取</button></td>
+								<td ><button style="background:green;color:white;"onclick = "window.location.href='../go_mark?mid={{m.0}}'">标注</button></td>
+								<td ><button style="background:green;color:white;"onclick = "window.location.href='../out_put?mission_id={{m.0}}'">导出</button></td>
+								</tr>
+								{% endfor %}
+						</table>
 					</div>
 				</div>
 			</div>
@@ -93,15 +153,14 @@
 	</div>
 	<!-- ***** Welcome Area End ***** -->
 
-
-	
 	<!-- ***** Footer Start ***** -->
 	<footer>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-5 col-md-12 col-sm-12">
 					<br><br><br><br><br><br>
-					<font color = "white">copyright@wxl-3190104726</font>
+							<font color = "white">copyright@wxl-3190104726</font>
+					</div>
 				</div>
 			</div>
 		</div>
