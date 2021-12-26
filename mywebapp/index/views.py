@@ -92,7 +92,7 @@ def upload(request):                      # 设置路径
 # 用户账号密码，第三部说明的Access
 # 阿里云主账号AccessKey拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM账号进行API访问或日常运维，请登录 https://ram.console.aliyun.com 创建RAM账号。
 # 获取的AccessKey
-auth = oss2.Auth('LTAI5tAgwL6qpoFcfcp2m3La', 'K4vMTbm3rAsVqu43jQADrpYdfl0Ntu')
+auth = oss2.Auth('********************', '********************')
 # 这个是需要用特定的地址，不同地域的服务器地址不同，不要弄错了
 endpoint = 'http://oss-cn-hangzhou.aliyuncs.com'
 # 你的项目名称，类似于不同的项目上传的文件前缀url不同
